@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Kies een competitie</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <select formControlName="competition" class="form-control" (change)="changeCompetition($event)">
+        <option *ngFor="let competition of competitionList">{{competition}}</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>

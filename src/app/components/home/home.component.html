@@ -1,0 +1,4 @@
+<div class="myForm">
+  <app-pick-sport (sportEmitter)="setSport($event)"></app-pick-sport>
+  <app-pick-competition (competitionEmitter)="setCompetition($event)" [sport]="sport" *ngIf="sport"></app-pick-competition>
+</div>

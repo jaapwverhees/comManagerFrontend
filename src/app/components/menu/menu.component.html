@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>competitieManager</h1>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <span style="font-size: 12px;">
+      <button *ngIf="isLoggedIn()" mat-icon-button (click)="logout()">logout</button>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
