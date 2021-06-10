@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Competitions} from '../../models/enumations/Competitions';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HomeComponent implements OnInit {
 
   @Input() sport?: string;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -17,7 +19,13 @@ export class HomeComponent implements OnInit {
     this.sport = sport;
   }
 
-  setCompetition($event: any): void {
-    console.log('competion set');
+  setCompetition(event: any): void {
+    console.log(event);
+    if (event === Competitions.TIMETRAIL){
+    console.log('TimeTrail');
+    this.router.navigateByUrl('/create-timetrail');
+    } else {
+      console.log('not implemented');
+    }
   }
 }

@@ -12,20 +12,20 @@ export class PickCompetitionComponent implements OnInit {
 
   @Input() sport?: string;
   @Output() competitionEmitter = new EventEmitter();
-  competitionList: any = [];
+  competitionList: any = this.getList();
 
   constructor() {
   }
 
-  form = new FormGroup({
-    competition: new FormControl(this.competitionList[0])
-  });
+  form: any;
 
   get f(): any {
     return this.form.controls;
   }
 
   submit(): void {
+    console.log(this.competitionList[0]);
+    console.log(this.form.value.competition);
     this.competitionEmitter.emit(this.form.value.competition);
   }
 
@@ -34,6 +34,9 @@ export class PickCompetitionComponent implements OnInit {
 
   ngOnInit(): void {
     this.competitionList = this.getList();
+    this.form = new FormGroup({
+      competition: new FormControl(this.competitionList[0])
+    });
   }
 
   getList(): any {

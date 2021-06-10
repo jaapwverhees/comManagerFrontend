@@ -1,0 +1,27 @@
+
+
+<div class="container">
+  <h2>Voer naam competitie in</h2>
+  <form [formGroup]="timeTrailForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input id="competition-name" placeholder="competitienaam" type="text" formControlName="competitionName">
+    </div>
+    <button class="button" type="submit">Purchase</button>
+  </form>
+  <div class="row">
+    <label>
+      <input type="text" (keyup.enter)="add(logo)" placeholder="wielrenner" #logo>
+    </label>
+  </div>
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li *ngFor="let item of timeTrailForm.value.items" class="list-group-item" >
+        {{item}}
+        <button class="pull-right btn btn-sm btn-warning" (click)="deleteItem(item)">Delete
+        </button>
+      </li>
+    </ul>
+  </div>
+  <h3>value</h3>
+  <br>
+</div>
